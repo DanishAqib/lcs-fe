@@ -1,0 +1,35 @@
+body{
+    background-image: url("../../assets/images/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+}
+
+.landing-page{
+    width: 100%;
+}
+
+.landing-page__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.landing-page__content__logo img{
+    width: 100%;
+    min-width: 300px;
+    max-width: 500px;
+    transform: translateX(0.5rem);
+}
+
+@media screen and (max-width: 830px){
+    .landing-page__content__logo img{
+        max-width: 370px;
+    }
+}
