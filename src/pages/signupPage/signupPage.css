@@ -1,0 +1,54 @@
+.signup-page{
+    overflow: hidden;
+    height: 100vh;
+}
+
+.signup-page__content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.signup-page__content__container{
+    height: 80%;
+}
+
+.signup-page__content__left__logo{
+    width: 25rem;
+    height: 25rem;
+}
+
+@media screen and (max-width: 990px){
+    .signup-form-container{
+        display: none;
+    }
+}
+
+.signup-page__content__left__logo img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.signup-form-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.signup-form-footer p{
+    font-size: 0.9rem;
+}

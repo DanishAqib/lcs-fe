@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import LandingPageLogo from "../../assets/images/landing-page-logo.png"
 import { Navbar } from '../../components/Navbar'

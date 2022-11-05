@@ -1,13 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { Navbar } from "../../components/Navbar";
 import appLogoBlack from "../../assets/images/app-logo-black.png";
-
+import { srAuthenticateUser } from "../../service/srUser";
 import "./loginPage.css";
-import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Link, useNavigate } from "react-router-dom"
 
 export const LoginPage = () => {
+    const navigate = useNavigate()
+    const [isRoleSelected, setIsRoleSelected] = useState(false);
+    const [userInfo, setUserInfo] = useState({
+        u_email: "",
+        u_password: "",
+        u_role: "",
+    });
+
+    const onInputChange = (e) => {
+        setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+    };
+
+    const onFormSubmit = (res) => {
+        if ( !isRoleSelected ) {
+            toast.error("Please select a role",{
+                position: toast.POSITION.TOP_CENTER
+            });
+            return;
+        }
+        if (res.status === "400") {
+            toast.error(res.message,{
+                position: toast.POSITION.TOP_CENTER
+            });
+        }
+        else if (res.status === "200") {
+            navigate("/lawyer-dashboard");
+        }
+    }
+
     return (
         <>
             <div className="login-page">
@@ -19,44 +50,63 @@ export const LoginPage = () => {
                         </div>
                     </div>
                     <div className="login-page__content__container">
-                        <div className="login-form">
-                            <div className="login-form__title">
+                        <div className="content__container-form">
+                            <div className="form__title">
                                 <h2>Login <span>E-Lawyer</span></h2>
                                 <p>Access to our dashboard</p>
                             </div>
-                            <Form>
-                                <Form.Group controlId="formBasicEmail">
-                                    <Form.Control className="input" type="email" placeholder="Enter email" />
+                            <Form className="form"
+                                onSubmit={(e) => {
+                                    e.preventDefault();
+                                    srAuthenticateUser(userInfo).then((res) => {
+                                        onFormSubmit(res);
+                                    });
+                                }}
+                            >
+                                <Form.Group controlId="formBasicEmail" className="form-group">
+                                    <Form.Control className="input" type="email" placeholder="Enter email" name="u_email"
+                                        value={userInfo.u_email}
+                                        onChange={onInputChange}
+                                        style={{ width: "98.5%", fontSize: "16px", color: "#000" }}
+                                    />
                                 </Form.Group>
-                                <Form.Group controlId="formBasicPassword">
-                                    <Form.Control className="input" type="password" placeholder="Enter Password" />
+                                <Form.Group controlId="formBasicPassword" className="form-group">
+                                    <Form.Control className="input" type="password" placeholder="Enter Password" name="u_password"
+                                        value={userInfo.u_password}
+                                        onChange={onInputChange}
+                                        style={{ width: "98.5%", fontSize: "16px", color: "#000" }}
+                                    />    
                                 </Form.Group>
-                                <Form.Group controlId="formBasicRole">
-                                    <Form.Control className="input" as="select">
-                                        <option
-                                            defaultValue={""}
-                                            disabled={true}
-                                            selected={true}
-                                            hidden={true}
-                                        >
+                                <Form.Group controlId="formBasicRole" className="form-group">
+                                    <Form.Control className="input" as="select" name="u_role"
+                                        defaultValue="select role"
+                                        onChange={(e) => {
+                                            setUserInfo({ ...userInfo, u_role: e.target.value });
+                                            setIsRoleSelected(!isRoleSelected);
+                                        }}
+                                        style={{ width: "101.5%", fontSize: "16px", color: "#000" }}>
+                                        <option value="select role" disabled>
                                             Select Role
                                         </option>
-                                        <option>Lawyer</option>
-                                        <option>Client</option>
+                                        <option value="lawyer">Lawyer</option>
+                                        <option value="client">Client</option>
                                     </Form.Control>
                                 </Form.Group>
-                                <div className="forgot-pass-link">
+                                {/* <div className="forgot-pass-link">
                                     <Link to="/forgot-password" className="forgotPass">Forgot Password?</Link>
+                                </div> */}
+                                <div className="login-form-footer">
+                                    <Button className="button login-btn" variant="primary" type="submit">
+                                        Submit
+                                    </Button>
+                                    <p>Don't Have an Account? <Link className="signupLink" to="/signup">SignUp</Link></p>
                                 </div>
-                                <Button className="loginButton" variant="primary" type="submit">
-                                    Submit
-                                </Button>
-                                <p>Don't Have an Account? <Link className="signupLink" to="/signup">SignUp</Link></p>
                             </Form>
                         </div>
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </>
     )
 }

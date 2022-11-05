@@ -13,7 +13,9 @@ export const Navbar = () => {
                 <Link href="#">Home</Link>
                 <Link href="#">About Us</Link>
                 <Link href="#">Contact Us</Link>
-                <Link to="/login">Log In</Link>
+                {
+                    window.location.pathname === "/login" ? <Link to="/signup">Sign Up</Link> : <Link to="/login">Login</Link>
+                }
             </div>
             <div className={`hamburger-menu ${openMenu ? "active" : ""}`} onClick={() => setOpenMenu(!openMenu)}>
                 <div className="hamburger-menu__line"></div>
@@ -28,7 +30,9 @@ export const Navbar = () => {
                         <Link href="#">Home</Link>
                         <Link href="#">About Us</Link>
                         <Link href="#">Contact Us</Link>
-                        <Link to="/login">Log In</Link>
+                        {
+                            window.location.pathname === "/login" ? <Link to="/signup">Sign Up</Link> : <Link to="/login">Login</Link>
+                        }
                     </div>
                 </div>
             )

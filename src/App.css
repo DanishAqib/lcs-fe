@@ -3,6 +3,7 @@
   --navbar-links: #F4C095;
   --btn-primary: #071E22;
   --clr-dark-orange: #FF8F32;
+  --clr-focus: #00B4D8;
 }
 
 .navbar{
@@ -18,12 +19,42 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--navbar-links);
+  cursor: pointer;
+}
+
+.navbar__logo::after{
+  content: "";
+  display: block;
+  width: 0;
+  height: 5px;
+  position: relative;
+  background: linear-gradient(to right, #68680c 0%, #e7627d 46%, #b8235a 59%, #801357 71%, #8d1775 100%);
+  transition: width .3s;
+}
+
+.navbar__logo:hover::after{
+  width: 100%;
 }
 
 .navbar__links{
   display: flex;
   align-items: center;
   gap: 4rem;
+}
+
+.navbar__links a::after{
+  content: "";
+  display: block;
+  width: 0;
+  height: 5px;
+  position: relative;
+  top: 0.5rem;
+  background: linear-gradient(to right, #68680c 0%, #e7627d 46%, #b8235a 59%, #801357 71%, #8d1775 100%);
+  transition: width .3s;
+}
+
+.navbar__links a:hover::after{
+  width: 100%;
 }
 
 @media screen and (max-width: 830px){
@@ -78,6 +109,8 @@
   width: 100%;
   background-color: #071e22e2;
   display: flex;
+  position: fixed;
+  z-index: 1000;
 }
 
 @media screen and (min-width: 830px){
@@ -126,10 +159,54 @@
 }
 
 .button:hover{
-  background-color: #fde2cc;
+  background-color: var(--clr-dark-orange);
   color: #071E22;
 }
 
 a{
   text-decoration: none;
+}
+
+.form__title h2{
+  font-size: 1rem;
+  color: var(--navbar-bg);
+  text-transform: uppercase;
+}
+
+.form__title h2 span{
+  color: var(--clr-dark-orange);
+}
+
+.form__title p{
+  color: var(--navbar-bg);
+  font-size: 0.8rem;
+}
+
+.content__container-form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 2rem;
+  border: 3px solid #70707094;
+  padding: 1.5rem 3rem;
+  width: 20rem;
+}
+
+.input{
+  height: 2rem;
+  border: 1px solid #707070;
+  font-family: 'Poppins';
+  padding-left: 0.5rem;
+  outline: none;
+}
+
+.input:focus{
+  border: 1px solid var(--clr-focus);
+  box-shadow: 0 0 0 0.2rem rgba(0, 180, 216, 0.25);
+}
+
+.form > *:not(:nth-child(1)){
+  margin-top: 1rem;
 }
