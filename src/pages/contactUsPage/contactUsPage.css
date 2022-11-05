@@ -1,0 +1,92 @@
+.contact-us-page-content{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:2rem;
+}
+
+.contact-us-page__header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.contact-us-page__header p{
+    width: 75%;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: -1rem;
+}
+
+@media screen and (max-width: 690px){
+    .contact-us-page__header p{
+        width: 100%;
+        text-align: left;
+    }
+    .contact-us-page-content{
+        width: 100%;
+    }
+    .content-title{
+        line-height: 1.2;
+        padding: 2rem 0;
+    }
+}
+
+.contact-us-page__header p:first-letter{
+    font-size: 1.7rem;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: #ff7300;
+}
+
+.contact-us-body{
+    background: var(--form-bg);
+    border: 3px solid var(--form-border);
+    border-radius: 3rem;
+    padding: 2rem 3rem;
+    width: 20rem;
+}
+
+.contact-us-body .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:0.5rem;
+}
+
+.contact-us-body .form .input{
+    width: 20rem;
+}
+
+.send-msg-btn{
+    width: 100%;
+    padding: 0.5rem 4rem;
+}
+
+.form-msg__body{
+    height: 9rem;
+    resize: none;
+}
+
+.form-msg__body::-webkit-scrollbar {
+    width: 0.3rem;
+    cursor: grab;
+}
+
+.form-msg__body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.form-msg__body::-webkit-scrollbar-thumb {
+    background: var(--navbar-links);
+}
+
+.form-msg__body::-webkit-scrollbar-thumb:active {
+    background: var(--clr-dark-orange);
+}

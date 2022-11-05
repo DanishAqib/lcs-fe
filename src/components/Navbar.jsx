@@ -10,9 +10,9 @@ export const Navbar = () => {
                 <h2>E-LAWYER</h2>
             </div>
             <div className="navbar__links">
-                <Link href="#">Home</Link>
-                <Link href="#">About Us</Link>
-                <Link href="#">Contact Us</Link>
+                <Link to="/">Home</Link>
+                <Link to="/about-us">About Us</Link>
+                <Link to="/contact-us">Contact Us</Link>
                 {
                     window.location.pathname === "/login" ? <Link to="/signup">Sign Up</Link> : <Link to="/login">Login</Link>
                 }
@@ -28,8 +28,8 @@ export const Navbar = () => {
                 <div className="navbar__links__mobile__container">
                     <div className="navbar__links__mobile">
                         <Link href="#">Home</Link>
-                        <Link href="#">About Us</Link>
-                        <Link href="#">Contact Us</Link>
+                        <Link to="/about-us">About Us</Link>
+                        <Link to="/contact-us">Contact Us</Link>
                         {
                             window.location.pathname === "/login" ? <Link to="/signup">Sign Up</Link> : <Link to="/login">Login</Link>
                         }

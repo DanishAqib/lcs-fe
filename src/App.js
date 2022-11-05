@@ -6,11 +6,15 @@ import { SignupPage } from "./pages/signupPage/SignupPage";
 import { ForgotPasswordPage } from "./pages/forgotPasswordPage/ForgotPasswordPage";
 import { ClientDashboard } from "./pages/clientDashboard/ClientDashboard";
 import { LawyerDashboard } from "./pages/lawyerDashboard/LawyerDashboard";
+import { AboutUsPage } from "./pages/aboutUsPage/AboutUsPage";
+import { ContactUsPage } from "./pages/contactUsPage/ContactUsPage";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/about-us" element={<AboutUsPage />} />
+      <Route path="/contact-us" element={<ContactUsPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />

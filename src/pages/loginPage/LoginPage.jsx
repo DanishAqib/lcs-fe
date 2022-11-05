@@ -37,6 +37,11 @@ export const LoginPage = () => {
         else if (res.status === "200") {
             navigate("/lawyer-dashboard");
         }
+        else{
+            toast.error("Something went wrong",{
+                position: toast.POSITION.TOP_CENTER
+            });
+        }
     }
 
     return (

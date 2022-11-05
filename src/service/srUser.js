@@ -41,3 +41,16 @@ export const srAuthenticateUser = async ({ u_email, u_password, u_role }) => {
     console.log(error);
   }
 };
+
+export const sendMessage = async ({ um_name, um_email, um_message }) => {
+  try {
+    const response = await axios.post(url + "/send-message", {
+      um_name,
+      um_email,
+      um_message,
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -1,6 +1,8 @@
 :root{
   --navbar-bg: #071E22;
   --navbar-links: #F4C095;
+  --form-bg: #FFF4E7;
+  --form-border: #70707069;
   --btn-primary: #071E22;
   --clr-dark-orange: #FF8F32;
   --clr-focus: #00B4D8;
@@ -10,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 4rem;
+  padding: 1rem 3rem;
   background-color: var(--navbar-bg);
   height: 3rem;
 }
@@ -107,9 +109,9 @@
 .navbar__links__mobile__container{
   left: 0;
   width: 100%;
-  background-color: #071e22e2;
+  background-color: #071e22f5;
   display: flex;
-  position: fixed;
+  position: sticky;
   z-index: 1000;
 }
 
@@ -156,6 +158,9 @@
   cursor: pointer;
   box-shadow: 0 6px 15px #8f8f8f;
   transition: all 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button:hover{
@@ -209,4 +214,23 @@ a{
 
 .form > *:not(:nth-child(1)){
   margin-top: 1rem;
+}
+
+.content-title{
+  padding: 2rem;
+  font-size: 2.5rem;
+  cursor: default;
+}
+
+.content-title::after{
+  content: "";
+  display: block;
+  width: 0;
+  height: 0.2rem;
+  background-color: var(--navbar-links);
+  transition: all 0.3s ease;
+}
+
+.content-title:hover::after{
+  width: 100%;
 }
