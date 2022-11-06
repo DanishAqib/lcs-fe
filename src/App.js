@@ -10,9 +10,27 @@ import { AboutUsPage } from "./pages/aboutUsPage/AboutUsPage";
 import { ContactUsPage } from "./pages/contactUsPage/ContactUsPage";
 
 function App() {
+  const isLoggedin = localStorage.getItem("isLoggedIn");
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const u_role = userInfo?.u_role;
+  console.log("isLoggedin", isLoggedin);
+
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
+      <Route
+        path="/"
+        element={
+          isLoggedin && isLoggedin === "true" ? (
+            u_role && u_role === "client" ? (
+              <ClientDashboard />
+            ) : (
+              <LawyerDashboard />
+            )
+          ) : (
+            <LandingPage />
+          )
+        }
+      />
       <Route path="/about-us" element={<AboutUsPage />} />
       <Route path="/contact-us" element={<ContactUsPage />} />
       <Route path="/login" element={<LoginPage />} />

@@ -1,7 +1,70 @@
 import React from 'react'
+import { Navbar } from "../../components/Navbar";
+import { getCurrentUserSession } from '../../shared/utils';
+import "./lawyerDashboard.css";
 
 export const LawyerDashboard = () => {
+  const currentUser = getCurrentUserSession();
+  if (!currentUser) {
+    window.location.href = "/login";
+  }
+  
   return (
-    <div>LawyerDashboard</div>
+    <>
+      <div className="page-container">
+        <Navbar />
+        <div className="dashboard-content">
+          <h1 className="content-title dashboard__header">
+            Welcome <span>{currentUser.u_firstname}</span> !
+          </h1>
+          <div className="dashboard__content-body">
+            <div className='dashboard__content__card'>
+              <h3 className='dashboard__content__card__header'>Appointment Requests</h3>
+              <p className='dashboard__content__card__body'>
+                Click here to check all the appointment requests from the clients and accept or reject them.
+              </p>
+              <button className='button dashboard__content__card__button'>View Appointment Requests</button>
+            </div>
+            <div className='dashboard__content__card'>
+              <h3 className='dashboard__content__card__header'>Current Appointments</h3>
+              <p className='dashboard__content__card__body'>
+                Click here to check all the current appointments with the clients along with the appointment details.
+              </p>
+              <button className='button dashboard__content__card__button'>View Current Appointment</button>
+            </div>
+            <div className='dashboard__content__card'>
+              <h3 className='dashboard__content__card__header'>Appointments History</h3>
+              <p className='dashboard__content__card__body'>
+                Click here to check all the appointments history with the clients along with the appointment details.
+              </p>
+              <button className='button dashboard__content__card__button'>View Appointments History</button>
+            </div>
+            <div className='dashboard__content__card'>
+              <h3 className='dashboard__content__card__header'>Change Status</h3>
+              <p className='dashboard__content__card__body'>
+                Click here to change your status to available or unavailable to let the clients know about your availability.
+              </p>
+              <button className='button dashboard__content__card__button'>Change Status</button>
+            </div>
+            <div className='dashboard__content__card'>
+              <h3 className='dashboard__content__card__header'>Update Profile</h3>
+              <p className='dashboard__content__card__body'>
+                Click here to update your profile details. You can also add your profile picture here.
+              </p>
+              <button className='button dashboard__content__card__button'>View Appointment Requests</button>
+            </div>
+            <div className='dashboard__content__card'>
+              <h3 className='dashboard__content__card__header'>Contact Us</h3>
+              <p className='dashboard__content__card__body'>
+                If you have any queries or suggestions, click here to contact contact us and we will get back to you soon.
+              </p>
+              <button className='button dashboard__content__card__button'
+                onClick={() => window.location.href = "/contact-us"}
+              >Contact Us</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }

@@ -1,0 +1,72 @@
+.dashboard-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard__header span{
+    color: var(--clr-dark-orange);
+}
+
+.dashboard__content-body{
+    margin-top: -1rem;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    padding: 1rem;
+}
+
+.dashboard__content__card{
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 6px 15px #8f8f8f;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    height: 200px;
+}
+
+.dashboard__content__card:hover{
+    transform: scale(1.02);
+}
+
+.dashboard__content__card__button{
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    width: clamp(100%, 100%, 80%);
+}
+
+.dashboard__content__card__body{
+    text-align: center;
+}
+
+.dashboard__content__card__header{
+    position: relative;
+    display: inline-block;
+    text-transform: capitalize;
+    text-transform: capitalize;
+}
+
+.dashboard__content__card__header::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    bottom: -5px;
+    left: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+.dashboard__content__card:hover .dashboard__content__card__header::after{
+    width: 100%;
+    left: 0;
+}

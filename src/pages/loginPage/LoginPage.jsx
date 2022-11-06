@@ -35,7 +35,15 @@ export const LoginPage = () => {
             });
         }
         else if (res.status === "200") {
-            navigate("/lawyer-dashboard");
+            localStorage.setItem("userInfo", JSON.stringify(res.user));
+            localStorage.setItem("isLoggedIn", true);
+            if (userInfo.u_role === "lawyer") {
+                navigate("/lawyer-dashboard");
+            }
+            else {
+                navigate("/client-dashboard");
+            }
+            navigate(0);
         }
         else{
             toast.error("Something went wrong",{
@@ -86,8 +94,8 @@ export const LoginPage = () => {
                                     <Form.Control className="input" as="select" name="u_role"
                                         defaultValue="select role"
                                         onChange={(e) => {
-                                            setUserInfo({ ...userInfo, u_role: e.target.value });
-                                            setIsRoleSelected(!isRoleSelected);
+                                            setIsRoleSelected(true);
+                                            onInputChange(e);
                                         }}
                                         style={{ width: "101.5%", fontSize: "16px", color: "#000" }}>
                                         <option value="select role" disabled>

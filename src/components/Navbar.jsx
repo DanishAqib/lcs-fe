@@ -1,12 +1,22 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
+  const navigate = useNavigate()
   const [openMenu, setOpenMenu] = useState(false)
+  const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'))
+
+  const onLogout = () => {
+    localStorage.clear();
+    navigate(0);
+  }
+
   return (
     <>
         <div className="navbar">
-            <div className="navbar__logo">
+            <div className="navbar__logo"
+                onClick={() => navigate("/")}
+            >
                 <h2>E-LAWYER</h2>
             </div>
             <div className="navbar__links">
@@ -14,7 +24,15 @@ export const Navbar = () => {
                 <Link to="/about-us">About Us</Link>
                 <Link to="/contact-us">Contact Us</Link>
                 {
-                    window.location.pathname === "/login" ? <Link to="/signup">Sign Up</Link> : <Link to="/login">Login</Link>
+                    isLoggedIn ? (
+                        <button className="button logout-btn" onClick={onLogout} >
+                            Logout
+                        </button>
+                    ) : window.location.pathname === "/login" ? (
+                        <Link to="/signup">Sign Up</Link>
+                    ) : (
+                        <Link to="/login">Login</Link>
+                    )
                 }
             </div>
             <div className={`hamburger-menu ${openMenu ? "active" : ""}`} onClick={() => setOpenMenu(!openMenu)}>
@@ -31,7 +49,15 @@ export const Navbar = () => {
                         <Link to="/about-us">About Us</Link>
                         <Link to="/contact-us">Contact Us</Link>
                         {
-                            window.location.pathname === "/login" ? <Link to="/signup">Sign Up</Link> : <Link to="/login">Login</Link>
+                            isLoggedIn ? (
+                                <button className="logout-link" onClick={onLogout} >
+                                    Logout
+                                </button>
+                            ) : window.location.pathname === "/login" ? (
+                                <Link to="/signup">Sign Up</Link>
+                            ) : (
+                                <Link to="/login">Login</Link>
+                            )
                         }
                     </div>
                 </div>
