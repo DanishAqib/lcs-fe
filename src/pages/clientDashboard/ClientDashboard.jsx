@@ -1,12 +1,15 @@
 import React from 'react'
 import { Navbar } from '../../components/Navbar'
 import { getCurrentUserSession } from '../../shared/utils';
+import { useNavigate } from 'react-router-dom';
 
 export const ClientDashboard = () => {
   const currentUser = getCurrentUserSession();
   if (!currentUser) {
     window.location.href = "/login";
   }
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -22,7 +25,9 @@ export const ClientDashboard = () => {
               <p className='dashboard__content__card__body'>
                 Click here to make an appointment with a lawyer to consult about your legal issues and get the best legal advice.
               </p>
-              <button className='button dashboard__content__card__button'>Make an appointment</button>
+              <button className='button dashboard__content__card__button'
+                onClick={() => navigate('/make-appointment')}
+              >Make an appointment</button>
             </div>
             <div className='dashboard__content__card'>
               <h3 className='dashboard__content__card__header'>Current Appointment</h3>
@@ -50,14 +55,18 @@ export const ClientDashboard = () => {
               <p className='dashboard__content__card__body'>
                 Click here to update your profile details. You can also add your profile picture here.
               </p>
-              <button className='button dashboard__content__card__button'>Update Profile</button>
+              <button className='button dashboard__content__card__button'
+                onClick={() => navigate('/update-profile')}
+              >Update Profile</button>
             </div>
             <div className='dashboard__content__card'>
               <h3 className='dashboard__content__card__header'>Contact Us</h3>
               <p className='dashboard__content__card__body'>
                 If you have any queries or suggestions, click here to contact contact us and we will get back to you soon.
               </p>
-              <button className='button dashboard__content__card__button'>Contact Us</button>
+              <button className='button dashboard__content__card__button'
+                onClick={() => navigate('/contact-us')}
+              >Contact Us</button>
             </div>
           </div>
         </div>

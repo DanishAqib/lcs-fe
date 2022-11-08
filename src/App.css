@@ -6,6 +6,7 @@
   --btn-primary: #071E22;
   --clr-dark-orange: #FF8F32;
   --clr-focus: #00B4D8;
+  --select-lawyer-btn: #00F6ED;
 }
 
 .navbar{
@@ -207,6 +208,11 @@ a{
   outline: none;
 }
 
+.file-upload {
+  padding-top: 0.3rem;
+  cursor: pointer;
+}
+
 .input:focus{
   border: 1px solid var(--clr-focus);
   box-shadow: 0 0 0 0.2rem rgba(0, 180, 216, 0.25);
@@ -257,4 +263,16 @@ a{
 .logout-btn:hover{
   background: rgb(255, 81, 81);
   box-shadow: 0 3px 15px #ff9d8a;
+}
+
+.form-group-image{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.profile-pic-label{
+  font-size: 12px;
+  color: red;
+  margin-bottom: -0.3rem;
 }

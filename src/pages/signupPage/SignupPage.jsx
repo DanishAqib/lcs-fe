@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 import { Navbar } from "../../components/Navbar";
 import appLogoBlack from "../../assets/images/app-logo-black.png";
 import { srCreateUser } from "../../service/srUser";
+import { convertImageToBase64 } from "../../shared/utils";
 import "./signupPage.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -25,6 +26,8 @@ export const SignupPage = () => {
         u_password: "",
         u_cPassword: "",
     });
+
+    const [isProflePicSelected, setIsProfilePicSelected] = useState(false);
 
     const onInputChange = (e) => {
         setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
@@ -67,7 +70,7 @@ export const SignupPage = () => {
             <div className="signup-page">
                 <Navbar />
                 <div className="signup-page__content ">
-                    <div className="signup-page__content__container signup-form-container" style={{marginTop:"3.5rem"}}>
+                    <div className="signup-page__content__container signup-form-container" style={{marginTop:"3.5rem", height: "85%"}}>
                         <div className="signup-page__content__left__logo">
                             <img src={appLogoBlack} alt="app-logo" />
                         </div>
@@ -81,7 +84,7 @@ export const SignupPage = () => {
                             <Form className="form"
                                 onSubmit={(e) => {
                                     e.preventDefault();
-                                    if (checkIfPasswordMatch()){
+                                    if (checkIfPasswordMatch() && isProflePicSelected) {
                                         srCreateUser(userInfo).then((res) => {
                                             onFormSubmit(res);
                                         });
@@ -105,6 +108,25 @@ export const SignupPage = () => {
                                         value={userInfo.u_email}
                                         onChange={onInputChange}
                                         style={{ width: "98.5%", fontSize: "16px", color: "#000" }}
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="formBasicProfilePic" className="form-group"
+                                    style={{ display: "flex", flexDirection: "column", alignItems: "start" }}
+                                >
+                                    <label htmlFor="profile-pic" className="profile-pic-label"
+                                        style={{ display: isProflePicSelected ? "none" : "block" }}
+                                    >
+                                        Upload Profile Picture
+                                    </label>
+                                    <Form.Control className="input file-upload" type="file" placeholder="Upload Profile Pic"
+                                        accept="image/png, image/jpeg, image/jpg"
+                                        onChange={(e) => {
+                                            convertImageToBase64(e.target.files[0]).then((base64) => {
+                                                setUserInfo({ ...userInfo, ui_image: base64 });
+                                            });
+                                            setIsProfilePicSelected(true);
+                                        }}
+                                        style={{ width: "96.5%", fontSize: "14px", color: "#000" }}
                                     />
                                 </Form.Group>
                                 <Form.Group controlId="formBasicRole" className="form-group">

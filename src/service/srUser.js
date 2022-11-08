@@ -11,6 +11,7 @@ export const srCreateUser = async ({
   u_phone,
   u_role,
   u_services,
+  ui_image,
 }) => {
   try {
     const response = await axios.post(url + "/register", {
@@ -22,7 +23,17 @@ export const srCreateUser = async ({
       u_phone,
       u_role,
       u_services,
+      ui_image,
     });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const srGetUserInfo = async (u_id) => {
+  try {
+    const response = await axios.get(url + "/" + u_id);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -35,6 +46,17 @@ export const srAuthenticateUser = async ({ u_email, u_password, u_role }) => {
       u_email,
       u_password,
       u_role,
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const srUpdateUser = async (u_id, u_info) => {
+  try {
+    const response = await axios.put(url + "/update_user/" + u_id, {
+      u_info,
     });
     return response.data;
   } catch (error) {

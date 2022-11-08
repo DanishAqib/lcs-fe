@@ -8,12 +8,13 @@ import { ClientDashboard } from "./pages/clientDashboard/ClientDashboard";
 import { LawyerDashboard } from "./pages/lawyerDashboard/LawyerDashboard";
 import { AboutUsPage } from "./pages/aboutUsPage/AboutUsPage";
 import { ContactUsPage } from "./pages/contactUsPage/ContactUsPage";
+import { UpdateProfilePage } from "./pages/updateProfilePage/UpdateProfilePage";
+import { MakeAppointmentPage } from "./pages/makeAppointmentPage/MakeAppointmentPage";
 
 function App() {
   const isLoggedin = localStorage.getItem("isLoggedIn");
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const u_role = userInfo?.u_role;
-  console.log("isLoggedin", isLoggedin);
 
   return (
     <Routes>
@@ -38,6 +39,8 @@ function App() {
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/client-dashboard" element={<ClientDashboard />} />
       <Route path="/lawyer-dashboard" element={<LawyerDashboard />} />
+      <Route path="/update-profile" element={<UpdateProfilePage />} />
+      <Route path="/make-appointment" element={<MakeAppointmentPage />} />
     </Routes>
   );
 }

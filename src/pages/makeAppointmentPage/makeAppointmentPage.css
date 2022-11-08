@@ -1,0 +1,154 @@
+.make-appointment-page-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
+.make-appointment-page__header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.make-appointment-page__header p{
+    width: 75%;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: -1.5rem;
+}
+
+@media screen and (max-width: 690px){
+    .make-appointment-page__header p{
+        width: 100%;
+        text-align: left;
+    }
+}
+
+.make-appointment-page__header p:first-letter{
+    font-size: 1.7rem;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: #ff7300;
+}
+
+.make-appointment-page__search{
+    width: clamp(20rem, 50%, 50rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.make-appointment-page__search input{
+    width: clamp(20rem, 80%, 50rem);
+    height: 2rem;
+    border: 1px solid #071E22;
+    border-radius: 1rem;
+    padding: 0 0.5rem;
+    text-transform: capitalize;
+}
+
+.make-appointment-page__body{
+    max-width: 85%;
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    align-items: center;
+    justify-items: center;
+    row-gap: 5rem;
+}
+
+
+
+.make-appointment-page__body__lawyers__card{
+    width: 250px;
+    height: 300px;
+    background: var(--navbar-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    border-radius: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.make-appointment-page__body__lawyers__card:hover{
+    box-shadow: 0 0 0 0.5rem var(--navbar-links);
+    animation: glow 1s ease-in-out infinite alternate;
+    transform: translateY(-0.5rem);
+}
+
+@keyframes glow{
+    0%{
+        box-shadow: 0 0 0 0.1rem var(--navbar-links);
+    }
+    100%{
+        box-shadow: 0 0 0 0.5rem var(--navbar-links);
+    }
+}
+
+
+
+.make-appointment-page__body__lawyers__card__image{
+    width: 7rem;
+    height: 7rem;
+    position: absolute;
+    top: -3.5rem;
+    background: var(--navbar-bg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--navbar-bg);
+}
+
+.make-appointment-page__body__lawyers__card__image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.make-appointment-page__body__lawyers__card__details{
+    margin-top: 3.5rem;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-transform: capitalize;
+}
+
+.select-lawyer-btn{
+    padding: 0.6rem 2rem;
+    box-shadow: none;
+    font-size: 1rem;
+    background: var(--select-lawyer-btn);
+    color: var(--navbar-bg);
+}
+
+.select-lawyer-btn:hover{
+    background: #090b7a;
+    color: #fff;
+}
+
+.make-appointment-page__body__lawyers__card__details p, .make-appointment-page__body__lawyers__card__details h4{
+    font-weight: bold;
+    color: var(--clr-dark-orange);
+}
+
+.make-appointment-page__body__lawyers__card__details p span, .make-appointment-page__body__lawyers__card__details h4 span{
+    font-weight: normal;
+    color: #fff;
+}
+
+.no-lawyer-title{
+    font-weight: bold;
+    color: var(--clr-dark-orange);
+    text-align: center;
+    margin-top: 4rem;
+}
