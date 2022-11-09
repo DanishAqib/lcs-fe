@@ -10,6 +10,7 @@ import { AboutUsPage } from "./pages/aboutUsPage/AboutUsPage";
 import { ContactUsPage } from "./pages/contactUsPage/ContactUsPage";
 import { UpdateProfilePage } from "./pages/updateProfilePage/UpdateProfilePage";
 import { MakeAppointmentPage } from "./pages/makeAppointmentPage/MakeAppointmentPage";
+import { AppointmentRequestPage } from "./pages/appointmentRequestPage/AppointmentRequestPage";
 
 function App() {
   const isLoggedin = localStorage.getItem("isLoggedIn");
@@ -41,6 +42,7 @@ function App() {
       <Route path="/lawyer-dashboard" element={<LawyerDashboard />} />
       <Route path="/update-profile" element={<UpdateProfilePage />} />
       <Route path="/make-appointment" element={<MakeAppointmentPage />} />
+      <Route path="/appointment-request" element={<AppointmentRequestPage />} />
     </Routes>
   );
 }

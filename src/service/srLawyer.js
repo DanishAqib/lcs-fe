@@ -21,3 +21,12 @@ export const srGetAllLawyers = async () => {
     console.log(error);
   }
 };
+
+export const srGetAllLawyerReviews = async (lawyer_id) => {
+  try {
+    const response = await axios.get(url + "/reviews/" + lawyer_id);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

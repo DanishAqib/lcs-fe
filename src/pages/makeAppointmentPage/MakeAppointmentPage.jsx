@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Navbar } from '../../components/Navbar';
+import { useNavigate } from "react-router-dom";
 import { getCurrentUserSession } from '../../shared/utils';
 import { srGetAllLawyers } from '../../service/srLawyer';
 import "./makeAppointmentPage.css";
@@ -10,6 +11,7 @@ export const MakeAppointmentPage = () => {
     if (!currentUser) {
         window.location.href = "/login";
     }
+    const navigate = useNavigate();
 
     const [lawyers, setLawyers] = useState([]);
     const [searchValue, setSearchValue] = useState('');
@@ -72,7 +74,7 @@ export const MakeAppointmentPage = () => {
                                                     cursor: li_status === "available" ? "pointer" : "not-allowed"
                                                 }}
                                                 onClick={() => {
-                                                    console.log(lawyer);
+                                                    navigate('/appointment-request', {state: {lawyerInfo: lawyer}});
                                                 }}
                                             >{
                                                 li_status === "available" ? "Select Lawyer" : "Unavailable"
