@@ -34,14 +34,18 @@ export const ClientDashboard = () => {
               <p className='dashboard__content__card__body'>
                 Click here to check all the current appointments with the lawyers along with the appointment details.
               </p>
-              <button className='button dashboard__content__card__button'>View Current Appointment</button>
+              <button className='button dashboard__content__card__button'
+                onClick={() => navigate('/client-current-appointment')}
+              >View Current Appointment</button>
             </div>
             <div className='dashboard__content__card'>
               <h3 className='dashboard__content__card__header'>Appointments History</h3>
               <p className='dashboard__content__card__body'>
-                Click here to check all the appointments history with the lawyers along with the appointment details.
+                Click here to check all the completed appointments history with the lawyers along with the appointment details.
               </p>
-              <button className='button dashboard__content__card__button'>View Appointments History</button>
+              <button className='button dashboard__content__card__button'
+                onClick={() => navigate('/client-appointment-history')}
+              >View Appointments History</button>
             </div>
             <div className='dashboard__content__card'>
               <h3 className='dashboard__content__card__header'>List of Lawyers</h3>

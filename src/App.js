@@ -11,6 +11,11 @@ import { ContactUsPage } from "./pages/contactUsPage/ContactUsPage";
 import { UpdateProfilePage } from "./pages/updateProfilePage/UpdateProfilePage";
 import { MakeAppointmentPage } from "./pages/makeAppointmentPage/MakeAppointmentPage";
 import { AppointmentRequestPage } from "./pages/appointmentRequestPage/AppointmentRequestPage";
+import { LawyerAppointmentRequestsPage } from "./pages/lawyerAppointmentRequestsPage/LawyerAppointmentRequestsPage";
+import { ClientCurrentAppointmentPage } from "./pages/clientCurrentAppointmentPage/ClientCurrentAppointmentPage";
+import { LawyerCurrentAppointmentPage } from "./pages/lawyerCurrentAppointmentPage/LawyerCurrentAppointmentPage";
+import { ClientAppointmentHistoryPage } from "./pages/clientAppointmentHistoryPage/ClientAppointmentHistoryPage";
+import { LawyerAppointmentHistoryPage } from "./pages/lawyerAppointmentHistoryPage/LawyerAppointmentHistoryPage";
 
 function App() {
   const isLoggedin = localStorage.getItem("isLoggedIn");
@@ -42,7 +47,27 @@ function App() {
       <Route path="/lawyer-dashboard" element={<LawyerDashboard />} />
       <Route path="/update-profile" element={<UpdateProfilePage />} />
       <Route path="/make-appointment" element={<MakeAppointmentPage />} />
+      <Route
+        path="/lawyer-appointment-requests"
+        element={<LawyerAppointmentRequestsPage />}
+      />
       <Route path="/appointment-request" element={<AppointmentRequestPage />} />
+      <Route
+        path="/lawyer-current-appointments"
+        element={<LawyerCurrentAppointmentPage />}
+      />
+      <Route
+        path="/client-current-appointment"
+        element={<ClientCurrentAppointmentPage />}
+      />
+      <Route
+        path="/client-appointment-history"
+        element={<ClientAppointmentHistoryPage />}
+      />
+      <Route
+        path="/lawyer-appointments-history"
+        element={<LawyerAppointmentHistoryPage />}
+      />
     </Routes>
   );
 }

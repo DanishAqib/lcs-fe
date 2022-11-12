@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { srChangeLawyerStatus } from '../service/srLawyer';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+
 export const StatusChangeDialog = ({
     setOpenStatusChangeDialog,
     u_id,

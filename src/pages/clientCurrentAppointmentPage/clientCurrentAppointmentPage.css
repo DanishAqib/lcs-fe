@@ -1,0 +1,247 @@
+.current-appointment-page-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
+.current-appointment-page__header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.current-appointment-page__header p{
+    width: 90%;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: -1.5rem;
+}
+
+@media screen and (max-width: 690px){
+    .current-appointment-page__header p{
+        width: 100%;
+        text-align: left;
+    }
+}
+
+.current-appointment-page__header p:first-letter{
+    font-size: 1.7rem;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: #ff7300;
+}
+
+.current-appointment-page__body{
+    width: clamp(20rem, 100%, 50rem);
+    margin-top: 1rem;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.list__item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 1rem;
+    border: 1px solid #071E22;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.31);
+    animation: fadeInFromBottom 0.5s ease-in-out;
+}
+
+@keyframes fadeInFromBottom{
+    0%{
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 850px){
+    .list__item{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .list__item{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .list__item .list__item__footer{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+.list__item__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.list__item__image{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 5%;
+    overflow: hidden;
+    border: 1px solid #071E22;
+}
+
+.list__item__image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.list__item__info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.4rem;
+    text-transform: capitalize;
+}
+
+.list__item__info h3{
+    font-size: 1rem;
+    color: #071E22;
+}
+
+.list__item__info p{
+    font-size: 0.8rem;
+    color: #071E22;
+}
+
+.list__item__info button{
+    border: none;
+    outline: none;
+    text-decoration: underline;
+    color: #007bff;
+    background: none;
+    cursor: pointer;
+}
+
+.list__item__footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap:4rem;
+}
+
+.list__item__footer__actions button{
+    background: #ff4400;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.list__item__footer__actions button:hover{
+    background: #ff7300;
+}
+
+.apt-details-dialog{
+    background-color: rgba(0, 0, 0, 0.842);
+    height: 70%;
+}
+
+.appointment-details-dialog__body{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+    overflow-y: scroll;
+    height: 50%;
+    width: 90%;
+}
+
+.appointment-details-dialog__body::-webkit-scrollbar {
+    width: 0rem;
+}
+
+.appointment-details-dialog__body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.appointment-details-dialog__body::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.appointment-details-dialog__body h3{
+    font-size: 1rem;
+    color: #ff7300;
+    word-break: break-word;
+}
+
+.appointment-details-dialog__body h3 span{
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #fff;
+}
+
+.apt-details-dialog-btn{
+    padding: 0.5rem 2rem;
+    width: 10rem;
+    background: #edededc8;
+    color: #071E22;
+}
+
+.apt-details-dialog-btn:hover{
+    background: #ffffff;
+    color: #071E22;
+}
+
+.no-apt-message{
+    text-align: center;
+    color: rgb(250, 48, 48);
+    margin-top: 5rem;
+}
+
+.list__item__footer__status p span{
+    text-transform: capitalize;
+    font-weight: bold; 
+}
+
+.list__item__footer__message{
+    font-size: 0.7rem;
+    width: 10rem;
+    font-weight: normal;
+}
+
+.list__item__footer__message::before{
+    content: " ";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: green;
+    margin-right: 0.5rem;
+}

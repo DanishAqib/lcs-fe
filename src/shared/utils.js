@@ -16,3 +16,14 @@ export const convertImageToBase64 = (file) => {
     };
   });
 };
+
+export const formatDateAndTime = (date) => {
+  const month = date.slice(5, 7);
+  const day = date.slice(8, 10);
+  const year = date.slice(0, 4);
+  const time = date.slice(11, 16);
+  const monthName = new Date(year, month - 1, day).toLocaleString("default", {
+    month: "long",
+  });
+  return `${monthName} ${day}, ${year} at ${time}`;
+};

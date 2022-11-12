@@ -38,21 +38,27 @@ export const LawyerDashboard = () => {
               <p className='dashboard__content__card__body'>
                 Click here to check all the appointment requests from the clients and accept or reject them.
               </p>
-              <button className='button dashboard__content__card__button'>View Appointment Requests</button>
+              <button className='button dashboard__content__card__button'
+                onClick={() => navigate('/lawyer-appointment-requests')}
+              >View Appointment Requests</button>
             </div>
             <div className='dashboard__content__card'>
               <h3 className='dashboard__content__card__header'>Current Appointments</h3>
               <p className='dashboard__content__card__body'>
                 Click here to check all the current appointments with the clients along with the appointment details.
               </p>
-              <button className='button dashboard__content__card__button'>View Current Appointment</button>
+              <button className='button dashboard__content__card__button'
+                onClick={() => navigate('/lawyer-current-appointments')}
+              >View Current Appointment</button>
             </div>
             <div className='dashboard__content__card'>
               <h3 className='dashboard__content__card__header'>Appointments History</h3>
               <p className='dashboard__content__card__body'>
                 Click here to check all the appointments history with the clients along with the appointment details.
               </p>
-              <button className='button dashboard__content__card__button'>View Appointments History</button>
+              <button className='button dashboard__content__card__button'
+                onClick={() => navigate('/lawyer-appointments-history')}
+              >View Appointments History</button>
             </div>
             <div className='dashboard__content__card'>
               <h3 className='dashboard__content__card__header'>Change Status</h3>

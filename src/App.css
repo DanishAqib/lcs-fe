@@ -226,6 +226,7 @@ a{
   padding: 2rem;
   font-size: 2.5rem;
   cursor: default;
+  text-transform: capitalize;
 }
 
 .content-title::after{

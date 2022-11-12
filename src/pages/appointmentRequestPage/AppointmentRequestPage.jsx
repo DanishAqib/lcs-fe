@@ -14,6 +14,8 @@ import Button from 'react-bootstrap/Button'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./appointmentRequestPage.css"
+import ReactStars from "react-rating-stars-component";
+
 
 export const AppointmentRequestPage = () => {
     const currentUser = getCurrentUserSession();
@@ -45,8 +47,9 @@ export const AppointmentRequestPage = () => {
                 calculateAverageRating();
             }
         })
-    }, [rating]);
-    
+        
+    }, [rating, lawyerInfo.u_id]);
+
     const calculateAverageRating = () => {
         const totalRating = reviews.reduce((acc, review) => {
             return acc + review.cr_rating;
@@ -137,12 +140,14 @@ export const AppointmentRequestPage = () => {
                             </div>
                             <div className='lawyer-card__ratings'>
                                 {
-                                    !isNaN(rating) ? (
-                                        Array.from(Array(rating), (e, i) => {
-                                            return <img src={starIcon} alt="star" key={i} />
-                                        })
-                                    ) : (
-                                        <p>No ratings yet</p>
+                                    !isNaN(rating) && (
+                                        <ReactStars
+                                            count={5}
+                                            value={rating}
+                                            size={24}
+                                            edit={false}
+                                            activeColor="#ffd700"
+                                        />
                                     )
                                 }
                             </div>

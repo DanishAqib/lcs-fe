@@ -1,0 +1,27 @@
+.history__page__actions{
+    display: flex;
+    gap:1rem;
+}
+
+.ratings__dialog{
+    height: 25rem;
+    justify-content: space-around;
+}
+
+.review__msg__input{
+    height: 9rem;
+    width: 15rem;
+    resize: none;
+}
+
+.review__msg__input::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.review__msg__input::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.review__msg__input::-webkit-scrollbar-thumb {
+    background: rgb(72, 197, 255);
+}

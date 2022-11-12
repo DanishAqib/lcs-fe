@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react'
-import starIcon from '../assets/icons/star-icon.png';
+import React from 'react'
+import ReactStars from "react-rating-stars-component";
+
 
 
 export const LawyerReviewsDialog = ({
@@ -23,9 +24,13 @@ export const LawyerReviewsDialog = ({
                                 <p>Rating: </p>
                                 <span>
                                     {
-                                        [...Array(review.cr_rating)].map((e, i) => (
-                                            <img src={starIcon} alt="star-icon" className='client-rating-given-icon' key={i} />
-                                        ))
+                                        <ReactStars
+                                            count={5}
+                                            value={review.cr_rating}
+                                            size={18}
+                                            activeColor="#ffd700"
+                                            edit={false}
+                                        />
                                     }
                                 </span>
                             </div>

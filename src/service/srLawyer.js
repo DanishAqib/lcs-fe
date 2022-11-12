@@ -30,3 +30,21 @@ export const srGetAllLawyerReviews = async (lawyer_id) => {
     console.log(error);
   }
 };
+
+export const srGiveLawyerReview = async (
+  lawyer_id,
+  client_id,
+  rating,
+  review
+) => {
+  try {
+    const response = await axios.post(url + "/give-review/" + lawyer_id, {
+      client_id,
+      rating,
+      review,
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

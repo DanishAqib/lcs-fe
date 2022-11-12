@@ -1,0 +1,86 @@
+.lawyer-appointment-requests-page-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+
+.lawyer-appointment-requests-page__header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.lawyer-appointment-requests-page__header p{
+    width: 90%;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: -1.5rem;
+}
+
+@media screen and (max-width: 690px){
+    .lawyer-appointment-requests-page__header p{
+        width: 100%;
+        text-align: left;
+    }
+}
+
+.lawyer-appointment-requests-page__header p:first-letter{
+    font-size: 1.7rem;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: #ff7300;
+}
+
+.lawyer-appointment-requests-page__body{
+    width: clamp(20rem, 100%, 50rem);
+    margin-top: 1rem;
+}
+
+.l-apt-req-footer{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 1rem;
+    height: 6.5rem;
+}
+
+@media screen and (max-width: 500px){
+    .l-apt-req-footer{
+        width: 100%;
+        justify-content: space-evenly; 
+        margin-top: -4rem; 
+    }
+}
+
+.l-apt-req-footer button{
+    padding: 0.2rem 1rem;
+    width: 7rem;
+    border: 1px solid #071e2237;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-weight: bold;
+}
+
+.list__item__footer__accept{
+    background: #00ff00;
+}
+
+.list__item__footer__accept:hover{
+    background: #02bb02;
+    opacity: 0.8;
+}
+
+.list__item__footer__reject{
+    background: #ff0000;
+    color: #fff;
+}
+
+.list__item__footer__reject:hover{
+    background: #bb0202;
+    opacity: 0.8;
+}
