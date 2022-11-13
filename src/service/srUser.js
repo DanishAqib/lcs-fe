@@ -64,6 +64,18 @@ export const srUpdateUser = async (u_id, u_info) => {
   }
 };
 
+export const srUpdatePassword = async (u_id, old_password, new_password) => {
+  try {
+    const response = await axios.put(url + "/update_password/" + u_id, {
+      old_password,
+      new_password,
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const sendMessage = async ({ um_name, um_email, um_message }) => {
   try {
     const response = await axios.post(url + "/send-message", {

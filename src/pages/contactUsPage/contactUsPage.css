@@ -50,6 +50,7 @@
     border-radius: 3rem;
     padding: 2rem 3rem;
     width: 20rem;
+    animation: slideIn 0.5s ease-in-out;
 }
 
 .contact-us-body .form{
@@ -58,6 +59,17 @@
     justify-content: center;
     align-items: center;
     gap:0.5rem;
+}
+
+@keyframes slideIn{
+    0%{
+        transform: translateX(-30%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .contact-us-body .form .input{

@@ -5,6 +5,7 @@ import { getCurrentUserSession } from '../../shared/utils';
 import { srGetUserInfo, srUpdateUser } from '../../service/srUser';
 import { convertImageToBase64 } from "../../shared/utils";
 import { ToastContainer, toast } from 'react-toastify';
+import { UpdatePasswordDialog } from '../../components/UpdatePasswordDialog';
 import 'react-toastify/dist/ReactToastify.css';
 import { Navbar } from '../../components/Navbar';
 import "./updateProfilePage.css";
@@ -17,6 +18,7 @@ export const UpdateProfilePage = () => {
 
     const [userInfo, setUserInfo] = useState({});
     const [isInEditMode, setIsInEditMode] = useState(false);
+    const [isPasswordDialogOpen, setIsPasswordDialogOpen] = useState(false);
 
     useEffect(() => {
         srGetUserInfo(currentUser.u_id)
@@ -74,7 +76,12 @@ export const UpdateProfilePage = () => {
 
     return (
         <>
-            <div className='page-container'>
+            <div className='page-container'
+                style={{ pointerEvents: isPasswordDialogOpen ? 'none' : 'auto',
+                filter: isPasswordDialogOpen ? 'blur(4px)' : 'none',
+                opacity: isPasswordDialogOpen ? '0.4' : '1'
+              }}
+            >
                 <Navbar/>
                 <div className='page-container__content'>
                     <h2 className='content-title'>Update Profile</h2>
@@ -119,6 +126,11 @@ export const UpdateProfilePage = () => {
                                          </Form.Group>
                                     )
                                 }
+                                <div className='update-prof-btns'>
+                                    <Button className="button change__pass__btn"
+                                        onClick={() => setIsPasswordDialogOpen(true)}
+                                    >Change Password</Button>
+                                </div>
                             </Form>
                         </div>
                         <div className='page-container__content__body__right'>
@@ -169,6 +181,14 @@ export const UpdateProfilePage = () => {
                     </div>
                 </div>
             </div>
+            {
+                isPasswordDialogOpen && (
+                    <UpdatePasswordDialog 
+                        setIsPasswordDialogOpen={setIsPasswordDialogOpen}
+                        user_id={userInfo.u_id}
+                    />
+                )
+            }
             <ToastContainer />
         </>
     );

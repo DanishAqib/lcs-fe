@@ -68,6 +68,7 @@
     justify-content: center;
     align-items: center;
     gap:2rem;
+    animation: slideIn 0.5s ease-in-out;
 }
 
 .apd-title{
@@ -182,11 +183,13 @@
 
 .review-dialog{
     background-color: rgba(0, 0, 0, 0.785);
+    height: 30rem;
 }
 
 .rd-body{
-    width: 20rem;
-    height: 20rem;
+    width: 90%;
+    height: 100%;
+    justify-content: space-between;
 }
 
 .review-dialog__content{
@@ -254,5 +257,4 @@
 .client-rating-given{
     display: flex;
     flex-direction: row;
-    align-items: center;
 }

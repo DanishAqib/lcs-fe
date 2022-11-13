@@ -19,6 +19,16 @@ body{
     align-items: center;
     height: 100%;
     width: 100%;
+    animation: fadeIn 0.8s;
+}
+
+@keyframes fadeIn {
+    0% {
+        scale: 0;
+    }
+    100% {
+        scale: 1;
+    }
 }
 
 .landing-page__content__logo img{
@@ -31,5 +41,30 @@ body{
 @media screen and (max-width: 830px){
     .landing-page__content__logo img{
         max-width: 370px;
+    }
+}
+
+.landing__page__footer{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.landing-page__content__button{
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-0.5rem);
+    }
+    100% {
+        transform: translateY(0);
     }
 }

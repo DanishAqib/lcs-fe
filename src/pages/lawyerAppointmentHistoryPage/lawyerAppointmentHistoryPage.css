@@ -1,0 +1,19 @@
+.history__page__actions{
+    text-align: right;
+}
+
+.cr_dialog{
+    height: 30rem;
+}
+
+.cr_body{
+    width: 90%;
+    height: 70%;
+    padding: 0;
+    margin-top: 0rem;   
+}
+
+.cr__description{
+    word-wrap: break-word;
+    width: 100%;
+}

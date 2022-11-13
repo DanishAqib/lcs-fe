@@ -60,8 +60,19 @@
     align-items: center;
     justify-items: center;
     row-gap: 5rem;
+    animation: fade-in 0.6s ease-in-out;
 }
 
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 
 .make-appointment-page__body__lawyers__card{

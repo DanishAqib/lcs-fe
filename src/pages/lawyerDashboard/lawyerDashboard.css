@@ -20,6 +20,16 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 1rem;
     padding: 1rem;
+    animation: fadeOpacity 0.5s linear;
+}
+
+@keyframes fadeOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .dashboard__content__card{
@@ -91,6 +101,7 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 100;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
 .user-status{

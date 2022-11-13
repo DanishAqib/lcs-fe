@@ -198,6 +198,7 @@ a{
   border: 3px solid #70707094;
   padding: 1.5rem 3rem;
   width: 20rem;
+  animation: slideIn 0.5s ease-in-out;
 }
 
 .input{
@@ -227,6 +228,24 @@ a{
   font-size: 2.5rem;
   cursor: default;
   text-transform: capitalize;
+  animation: moveFromTop 0.4s ease-out;
+}
+
+@media screen and (max-width: 390px){
+  .content-title{
+    font-size: 2rem;
+  }
+}
+
+@keyframes moveFromTop{
+  0%{
+    transform: translateY(-30%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .content-title::after{

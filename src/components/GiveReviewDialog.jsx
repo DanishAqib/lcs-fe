@@ -8,7 +8,8 @@ import Form from 'react-bootstrap/Form'
 export const GiveReviewDialog = ({
     setIsRatingDialogOpen,
     lawyer_id,
-    currentUser
+    currentUser,
+    appointment_id
 }) => {
 
     const [ratingsInfo, setRatingsInfo] = useState({
@@ -56,7 +57,7 @@ export const GiveReviewDialog = ({
                         backgroundColor: ratingsInfo.rating === 0 && ratingsInfo.comment === '' ? '#1e90ff80' : '#1e90ff'
                     }}
                     onClick={() => {
-                        srGiveLawyerReview(lawyer_id, currentUser.u_id, ratingsInfo.rating, ratingsInfo.comment).then((res) => {
+                        srGiveLawyerReview(appointment_id, lawyer_id, currentUser.u_id, ratingsInfo.rating, ratingsInfo.comment).then((res) => {
                             if (res.status === "200") {
                                 setIsRatingDialogOpen(false);
                                 toast.success(res.message, {

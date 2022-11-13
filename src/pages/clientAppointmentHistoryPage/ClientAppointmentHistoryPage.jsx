@@ -17,6 +17,7 @@ export const ClientAppointmentHistoryPage = () => {
 
     const [appointments, setAppointments] = useState([]);
     const [appointmentInfo, setAppointmentInfo] = useState({
+        car_id: '',
         car_updated_at: '',
         car_title: '',
         car_description: '',
@@ -69,6 +70,7 @@ export const ClientAppointmentHistoryPage = () => {
                                                             <button className="list__item__info__appt-details"
                                                                 onClick={() => {
                                                                     setAppointmentInfo({
+                                                                        car_id,
                                                                         car_updated_at,
                                                                         car_title,
                                                                         car_description,
@@ -86,6 +88,12 @@ export const ClientAppointmentHistoryPage = () => {
                                                             <button className="list__item__footer__actions__btn review-btn"
                                                                 style={{backgroundColor: '#3a59f7'}}
                                                                 onClick={()=>{
+                                                                    setAppointmentInfo({
+                                                                        car_id,
+                                                                        car_updated_at,
+                                                                        car_title,
+                                                                        car_description,
+                                                                    });
                                                                     setIsRatingDialogOpen(true)
                                                                     setLawyer_id(u_id)
                                                                 }}
@@ -98,7 +106,7 @@ export const ClientAppointmentHistoryPage = () => {
                                 }
                             </div>
                         ) : (
-                            <h3 className='no-apt-message'>No Appointment History</h3>
+                            <h3 className='no-apt-message'>No Appointments History Found</h3>
                         )
                     }
                 </div>
@@ -119,6 +127,7 @@ export const ClientAppointmentHistoryPage = () => {
                     setIsRatingDialogOpen={setIsRatingDialogOpen}
                     lawyer_id={lawyer_id}
                     currentUser={currentUser}
+                    appointment_id={appointmentInfo.car_id}
                 />
             )
         }

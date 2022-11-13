@@ -34,12 +34,14 @@ export const LawyerReviewsDialog = ({
                                     }
                                 </span>
                             </div>
-                            <p>Review: <span>{review.cr_review}</span></p>
+                            <p className='cr__description'>Review: <span>{review.cr_review}</span></p>
                         </div>
                     ))
                     ) : (
-                        <div className="status-dialog__content__body__review">
-                            <h3>No reviews yet</h3>
+                        <div className="status-dialog__content__body__review"
+                            style={{marginTop: '4rem'}}
+                        >
+                            <h3 style={{textAlign: 'center'}}>No reviews yet</h3>
                         </div>
                     )
                 }

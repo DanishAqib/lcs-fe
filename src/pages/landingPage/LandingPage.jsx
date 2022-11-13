@@ -16,6 +16,13 @@ export const LandingPage = () => {
           <div className="landing-page__content__button">
             <Link className='button' to="/login">Get started</Link>
           </div>
+          <div className="landing__page__footer">
+            <div className="landing__page__footer__content">
+              <div className="landing__page__footer__content__text">
+                <p>© 2021 Lcs. All rights reserved.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

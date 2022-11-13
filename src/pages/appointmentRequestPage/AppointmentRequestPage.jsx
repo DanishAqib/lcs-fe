@@ -5,7 +5,6 @@ import { Navbar } from '../../components/Navbar';
 import { srGetAllLawyerReviews } from '../../service/srLawyer';
 import { srCreateAppointment } from '../../service/srAppointment';
 import { LawyerReviewsDialog } from '../../components/LawyerReviewsDialog';
-import starIcon from '../../assets/icons/star-icon.png';
 import phoneIcon from '../../assets/icons/phone-icon.png';
 import mailIcon from '../../assets/icons/mail-icon.png';
 import locationIcon from '../../assets/icons/location-icon.png';
