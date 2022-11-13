@@ -52,7 +52,9 @@ export const ClientDashboard = () => {
               <p className='dashboard__content__card__body'>
                 Click here to check all the lawyers registered with us along with their profile details.
               </p>
-              <button className='button dashboard__content__card__button'>View List of Lawyers</button>
+              <button className='button dashboard__content__card__button'
+                onClick={() => navigate('/make-appointment')}
+              >View List of Lawyers</button>
             </div>
             <div className='dashboard__content__card'>
               <h3 className='dashboard__content__card__header'>Update Profile</h3>
