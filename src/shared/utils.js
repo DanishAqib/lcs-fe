@@ -25,5 +25,6 @@ export const formatDateAndTime = (date) => {
   const monthName = new Date(year, month - 1, day).toLocaleString("default", {
     month: "long",
   });
-  return `${monthName} ${day}, ${year} at ${time}`;
+  const AMPM = time.slice(0, 2) >= 12 ? "PM" : "AM";
+  return `${monthName} ${day}, ${year} at ${time} ${AMPM}`;
 };

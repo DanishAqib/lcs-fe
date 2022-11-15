@@ -15,7 +15,7 @@ export const ClientCurrentAppointmentPage = () => {
 
     const [appointments, setAppointments] = useState([]);
     const [appointmentInfo, setAppointmentInfo] = useState({
-        car_updated_at: '',
+        car_request_datetime: '',
         car_title: '',
         car_description: '',
     });
@@ -49,7 +49,7 @@ export const ClientCurrentAppointmentPage = () => {
                                 <div className="list">
                                     {
                                         appointments.map((appointment) => {
-                                            const { car_id, car_status, car_updated_at, car_title, car_description, lawyer } = appointment;
+                                            const { car_id, car_status, car_request_datetime, car_title, car_description, lawyer } = appointment;
                                             const { li_services_name, u_firstname, u_lastname, u_city, lawyerImage } = lawyer;
 
                                             return <div className="list__item" key={car_id}>
@@ -64,7 +64,7 @@ export const ClientCurrentAppointmentPage = () => {
                                                         <button className="list__item__info__appt-details"
                                                             onClick={() => {
                                                                 setAppointmentInfo({
-                                                                    car_updated_at,
+                                                                    car_request_datetime,
                                                                     car_title,
                                                                     car_description
                                                                 });
@@ -96,7 +96,7 @@ export const ClientCurrentAppointmentPage = () => {
                                                                         })
                                                                     }}
                                                                 >{car_status === "rejected" ? "Remove" : "Cancel"} Request</button>
-                                                            ) : <h3 className='list__item__footer__message'>Please consult the lawyer on requested date and time at {formatDateAndTime(car_updated_at)}</h3>
+                                                            ) : <h3 className='list__item__footer__message'>Please consult the lawyer on requested date and time at {formatDateAndTime(car_request_datetime)}</h3>
                                                         }
                                                     </div>
                                                 </div>

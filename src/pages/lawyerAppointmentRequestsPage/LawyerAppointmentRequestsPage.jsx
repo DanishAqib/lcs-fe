@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Navbar } from '../../components/Navbar';
-import { getCurrentUserSession } from '../../shared/utils';
+import { formatDateAndTime, getCurrentUserSession } from '../../shared/utils';
 import { srGetAllLawyerAppointmentRequests, changeAppointmentStatus } from '../../service/srAppointment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,7 +16,7 @@ export const LawyerAppointmentRequestsPage = () => {
 
     const [appointments, setAppointments] = useState([]);
     const [appointmentInfo, setAppointmentInfo] = useState({
-        car_updated_at: '',
+        car_request_datetime: '',
         car_title: '',
         car_description: '',
     });
@@ -73,7 +73,7 @@ export const LawyerAppointmentRequestsPage = () => {
                             <div className='list'>
                                 {
                                     appointments.map((appointment) => {
-                                        const {car_id, car_title, car_description, car_updated_at, client} = appointment;
+                                        const {car_id, car_title, car_description, car_request_datetime, client} = appointment;
                                         const {u_firstname, u_lastname, u_city, clientImage} = client;
 
                                         return <div className='list__item' key={car_id}>
@@ -91,7 +91,7 @@ export const LawyerAppointmentRequestsPage = () => {
                                                             <button className="list__item__info__appt-details" type='button'
                                                                 onClick={() => {
                                                                     setAppointmentInfo({
-                                                                        car_updated_at,
+                                                                        car_request_datetime,
                                                                         car_title,
                                                                         car_description,
                                                                     });
@@ -103,16 +103,22 @@ export const LawyerAppointmentRequestsPage = () => {
                                                         </div>
                                                     </div>
                                                     <div className="l-apt-req-footer">
-                                                        <button className="list__item__footer__accept"
-                                                            onClick={() => approveAppointment(car_id, `${u_firstname}`)}
-                                                        >
-                                                            Accept
-                                                        </button>
-                                                        <button className="list__item__footer__reject"
-                                                            onClick={() => rejectAppointment(car_id, `${u_firstname}`)}
-                                                        >
-                                                            Reject
-                                                        </button>
+                                                        <div className='apt-req-footer__datetime'>
+                                                            <p>DateTime: <span>{formatDateAndTime(car_request_datetime)}</span></p>
+                                                            <button className='change__datetime-btn' type='button'>Change Datetime</button>
+                                                        </div>
+                                                        <div className='apt-req__action-btns'>
+                                                            <button className="list__item__footer__accept"
+                                                                onClick={() => approveAppointment(car_id, `${u_firstname}`)}
+                                                            >
+                                                                Accept
+                                                            </button>
+                                                            <button className="list__item__footer__reject"
+                                                                onClick={() => rejectAppointment(car_id, `${u_firstname}`)}
+                                                            >
+                                                                Reject
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                         }

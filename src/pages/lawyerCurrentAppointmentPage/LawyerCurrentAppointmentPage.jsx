@@ -15,7 +15,7 @@ export const LawyerCurrentAppointmentPage = () => {
 
     const [appointments, setAppointments] = useState([]);
     const [appointmentInfo, setAppointmentInfo] = useState({
-        car_updated_at: '',
+        car_request_datetime: '',
         car_title: '',
         car_description: '',
     });
@@ -60,7 +60,7 @@ export const LawyerCurrentAppointmentPage = () => {
                             <div className="list">
                                 {
                                     appointments.map((appointment) => {
-                                        const {car_id, car_status, car_updated_at, car_title, car_description, client } = appointment;
+                                        const {car_id, car_status, car_request_datetime, car_title, car_description, client } = appointment;
                                         const {u_firstname, u_lastname, u_city, clientImage} = client;
 
                                         return (<div className="list__item" key={car_id}>
@@ -78,7 +78,7 @@ export const LawyerCurrentAppointmentPage = () => {
                                                             <button className="list__item__info__appt-details" type='button'
                                                                 onClick={() => {
                                                                     setAppointmentInfo({
-                                                                        car_updated_at,
+                                                                        car_request_datetime,
                                                                         car_title,
                                                                         car_description
                                                                     });

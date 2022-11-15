@@ -7,6 +7,7 @@ export const srCreateAppointment = async ({
   car_lawyer_id,
   car_title,
   car_description,
+  car_datetime,
 }) => {
   try {
     const response = await axios.post(url + "/create-appointment", {
@@ -14,6 +15,7 @@ export const srCreateAppointment = async ({
       car_lawyer_id,
       car_title,
       car_description,
+      car_datetime,
     });
     return response.data;
   } catch (error) {

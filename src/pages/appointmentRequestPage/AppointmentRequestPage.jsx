@@ -37,6 +37,7 @@ export const AppointmentRequestPage = () => {
         car_lawyer_id: lawyerInfo.u_id,
         car_title: '',
         car_description: '',
+        car_datetime: '',
     });
 
     useEffect(() => {
@@ -98,6 +99,14 @@ export const AppointmentRequestPage = () => {
                                         onChange={onInputChange}
                                     />
                                 </Form.Group>
+                                <Form.Group controlId="formBasicDateTime" className="form-group date-time__form-grp">
+                                    <Form.Label className="date-time__label">Request Date & Time</Form.Label>
+                                    <Form.Control className="input" type="datetime-local" placeholder="Date and Time" name="car_datetime"
+                                    style={{ width:'97%' }}    
+                                        value={appointmentInfo.car_datetime}
+                                        onChange={onInputChange}
+                                    />
+                                </Form.Group>
                             </Form>
                             <div className='appointment-request-page__body__form__footer'>
                                 <Button variant="primary" type="submit" className="button"
@@ -121,6 +130,7 @@ export const AppointmentRequestPage = () => {
                                             car_lawyer_id: lawyerInfo.u_id,
                                             car_title: '',
                                             car_description: '',
+                                            car_datetime: '',
                                         })
                                     }}
                                 >

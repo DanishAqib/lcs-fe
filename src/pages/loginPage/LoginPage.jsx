@@ -77,14 +77,15 @@ export const LoginPage = () => {
                                 }}
                             >
                                 <Form.Group controlId="formBasicEmail" className="form-group">
-                                    <Form.Control className="input" type="email" placeholder="Enter email" name="u_email"
+                                    <Form.Control className="input" type="email" placeholder="Enter email" name="u_email" required
+                                        autoFocus
                                         value={userInfo.u_email}
                                         onChange={onInputChange}
                                         style={{ width: "98.5%", fontSize: "16px", color: "#000" }}
                                     />
                                 </Form.Group>
                                 <Form.Group controlId="formBasicPassword" className="form-group">
-                                    <Form.Control className="input" type="password" placeholder="Enter Password" name="u_password"
+                                    <Form.Control className="input" type="password" placeholder="Enter Password" name="u_password" required
                                         value={userInfo.u_password}
                                         onChange={onInputChange}
                                         style={{ width: "98.5%", fontSize: "16px", color: "#000" }}

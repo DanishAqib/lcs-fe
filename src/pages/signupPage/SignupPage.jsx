@@ -33,15 +33,51 @@ export const SignupPage = () => {
         setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
     };
 
-    const checkIfPasswordMatch = () => {
+    const validateForm = () => {
+        if (userInfo.u_phone.length !== 11) {
+          toast.error("Enter a valid phone number", {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          return false;
+        }
+        if (userInfo.u_role === "lawyer" && userInfo.u_services === "") {
+          toast.error("Enter atleast one service", {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          return false;
+        }
+        if (userInfo.u_password.length < 8) {
+          toast.error("Password should be atleast 8 characters long", {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          return false;
+        }
+        if (!userInfo.u_password.match(/[A-Z]/g)) {
+          toast.error("Password should contain atleast one uppercase letter", {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          return false;
+        }
+        if (!userInfo.u_password.match(/[0-9]/g)) {
+          toast.error("Password should contain atleast one number", {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          return false;
+        }
         if (userInfo.u_password !== userInfo.u_cPassword) {
-            toast.error("Password does not match",{
-                position: toast.POSITION.TOP_CENTER
+            toast.error("Password does not match", {
+                position: toast.POSITION.TOP_CENTER,
+            });
+            return false;
+        }
+        if (!isProflePicSelected) {
+            toast.error("Profile picture is required", {
+                position: toast.POSITION.TOP_CENTER,
             });
             return false;
         }
         return true;
-    };
+    };      
 
     const onFormSubmit = (res) => {
         if ( !isRoleSelected ) {
@@ -84,7 +120,7 @@ export const SignupPage = () => {
                             <Form className="form"
                                 onSubmit={(e) => {
                                     e.preventDefault();
-                                    if (checkIfPasswordMatch() && isProflePicSelected) {
+                                    if (validateForm()) {
                                         srCreateUser(userInfo).then((res) => {
                                             onFormSubmit(res);
                                         });
@@ -92,19 +128,19 @@ export const SignupPage = () => {
                                 }}
                             >
                                 <Form.Group controlId="formBasicName" className="form-group">
-                                    <Form.Control className="input" type="text" placeholder="Enter First Name" name="u_firstname"
+                                    <Form.Control className="input" type="text" placeholder="Enter First Name" name="u_firstname" required
                                         value={userInfo.u_firstname}
                                         onChange={onInputChange}
                                         style={{ width: "50%", fontSize: "16px", color: "#000" }}
                                     />
-                                    <Form.Control className="input" type="text" placeholder="Enter Last Name" name="u_lastname"
+                                    <Form.Control className="input" type="text" placeholder="Enter Last Name" name="u_lastname" required
                                         value={userInfo.u_lastname}
                                         onChange={onInputChange}
                                         style={{ width: "50%", fontSize: "16px", color: "#000" }}
                                     />
                                 </Form.Group>
                                 <Form.Group controlId="formBasicEmail" className="form-group">
-                                    <Form.Control className="input" type="email" placeholder="Enter Email" name="u_email"
+                                    <Form.Control className="input" type="email" placeholder="Enter Email" name="u_email" required
                                         value={userInfo.u_email}
                                         onChange={onInputChange}
                                         style={{ width: "98.5%", fontSize: "16px", color: "#000" }}
@@ -118,7 +154,7 @@ export const SignupPage = () => {
                                     >
                                         Upload Profile Picture
                                     </label>
-                                    <Form.Control className="input file-upload" type="file" placeholder="Upload Profile Pic"
+                                    <Form.Control className="input file-upload" type="file" placeholder="Upload Profile Pic" required
                                         accept="image/png, image/jpeg, image/jpg"
                                         onChange={(e) => {
                                             convertImageToBase64(e.target.files[0]).then((base64) => {
@@ -149,7 +185,7 @@ export const SignupPage = () => {
                                     isLawyer && (
                                         <>
                                             <Form.Group controlId="formBasic" className="form-group">
-                                                <Form.Control className="input" type="text" placeholder="Enter Services" name="u_services"
+                                                <Form.Control className="input" type="text" placeholder="Enter Services" name="u_services" required
                                                     value={userInfo.u_services}
                                                     onChange={onInputChange}
                                                     style={{ width: "98.5%", fontSize: "16px", color: "#000" }}
@@ -159,26 +195,26 @@ export const SignupPage = () => {
                                     )
                                 }
                                 <Form.Group controlId="formBasicCity" className="form-group">
-                                    <Form.Control className="input" type="text" placeholder="Enter City" name="u_city"
+                                    <Form.Control className="input" type="text" placeholder="Enter City" name="u_city" required
                                         value={userInfo.u_city}
                                         onChange={onInputChange}
                                         style={{ width: "50%", fontSize: "16px", color: "#000" }}
                                     />
-                                    <Form.Control className="input" type="text" placeholder="Phone Number" name="u_phone"
+                                    <Form.Control className="input" type="text" placeholder="Phone Number" name="u_phone" required
                                         value={userInfo.u_phone}
                                         onChange={onInputChange}
                                         style={{ width: "50%", fontSize: "16px", color: "#000" }}
                                     />
                                 </Form.Group>
                                 <Form.Group controlId="formBasicPassword" className="form-group">
-                                    <Form.Control className="input" type="password" placeholder="Password" name="u_password"
+                                    <Form.Control className="input" type="password" placeholder="Password" name="u_password" required
                                         value={userInfo.u_password}
                                         onChange={onInputChange}
                                         style={{ width: "98.5%", fontSize: "16px", color: "#000" }}
                                     />
                                 </Form.Group>
                                 <Form.Group controlId="formBasicPassword" className="form-group">
-                                    <Form.Control className="input" type="password" placeholder="Confirm Password" name="u_cPassword"
+                                    <Form.Control className="input" type="password" placeholder="Confirm Password" name="u_cPassword" required
                                         value={userInfo.u_cPassword}
                                         onChange={onInputChange}
                                         style={{ width: "98.5%", fontSize: "16px", color: "#000" }}

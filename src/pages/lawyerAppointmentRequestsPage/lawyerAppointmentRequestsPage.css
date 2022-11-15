@@ -42,10 +42,34 @@
 
 .l-apt-req-footer{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-end;
-    gap: 1rem;
+    justify-content: space-between;
     height: 6.5rem;
+}
+
+.apt-req-footer__datetime{
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.change__datetime-btn{
+    font-size: 0.9em;
+    text-decoration: underline;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    font-weight: bolder;
+    color: #ff7300;
+    background: none;
+}
+
+.apt-req-footer__datetime span{
+    color: #0080ff;
+    font-weight: 500;
 }
 
 @media screen and (max-width: 500px){
@@ -56,7 +80,7 @@
     }
 }
 
-.l-apt-req-footer button{
+.l-apt-req-footer .apt-req__action-btns button{
     padding: 0.2rem 1rem;
     width: 7rem;
     border: 1px solid #071e2237;

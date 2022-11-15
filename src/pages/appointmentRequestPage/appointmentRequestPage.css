@@ -27,6 +27,7 @@
 .appointment-request-page__header p span{
     font-weight: bold;
     color: #ff7300;
+    text-transform: capitalize;
 }
 
 .appointment-request-page__header p:first-letter{
@@ -257,4 +258,24 @@
 .client-rating-given{
     display: flex;
     flex-direction: row;
+}
+
+.ap-req-date__label{
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.date-time__form-grp{
+    flex-direction: column;
+    gap: 0;
+}
+
+.date-time__label{
+    font-size: 13px;
+    color: red;
+    margin-top: -0.5rem;
+}
+
+.date-time__input{
+    width: 10rem;
 }

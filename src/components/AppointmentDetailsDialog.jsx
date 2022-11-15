@@ -12,7 +12,7 @@ const AppointmentDetailsDialog = ({
             <h3>Appointment Details</h3>
         </div>
         <div className="appointment-details-dialog__body">
-            <h3>{status ? "Completion" : "Request"} Time: <span>{formatDateAndTime(appointmentInfo.car_updated_at)}</span></h3>
+            <h3>{status ? "Completion" : "Requested"} DateTime: <span>{formatDateAndTime(appointmentInfo.car_request_datetime)}</span></h3>
             <h3>Title: <span>{appointmentInfo.car_title}</span></h3>
             <h3 className='apt-description  '>Description: <span>{appointmentInfo.car_description}</span></h3>
         </div>

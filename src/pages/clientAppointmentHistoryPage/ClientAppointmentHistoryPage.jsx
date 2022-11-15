@@ -18,7 +18,7 @@ export const ClientAppointmentHistoryPage = () => {
     const [appointments, setAppointments] = useState([]);
     const [appointmentInfo, setAppointmentInfo] = useState({
         car_id: '',
-        car_updated_at: '',
+        car_request_datetime: '',
         car_title: '',
         car_description: '',
     });
@@ -56,7 +56,7 @@ export const ClientAppointmentHistoryPage = () => {
                             <div className="list">
                                 {
                                     appointments.map((appointment) => {
-                                        const { car_id, car_status, car_updated_at, car_title, car_description, lawyer } = appointment;
+                                        const { car_id, car_status, car_request_datetime, car_title, car_description, lawyer } = appointment;
                                         const { u_id, li_services_name, u_firstname, u_lastname, u_city, lawyerImage } = lawyer;
                                         return <div className="list__item" key={car_id}>
                                                     <div className="list__item__header">
@@ -71,7 +71,7 @@ export const ClientAppointmentHistoryPage = () => {
                                                                 onClick={() => {
                                                                     setAppointmentInfo({
                                                                         car_id,
-                                                                        car_updated_at,
+                                                                        car_request_datetime,
                                                                         car_title,
                                                                         car_description,
                                                                     });
@@ -90,7 +90,7 @@ export const ClientAppointmentHistoryPage = () => {
                                                                 onClick={()=>{
                                                                     setAppointmentInfo({
                                                                         car_id,
-                                                                        car_updated_at,
+                                                                        car_request_datetime,
                                                                         car_title,
                                                                         car_description,
                                                                     });

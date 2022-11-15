@@ -68,7 +68,7 @@ export const ClientDashboard = () => {
             <div className='dashboard__content__card'>
               <h3 className='dashboard__content__card__header'>Contact Us</h3>
               <p className='dashboard__content__card__body'>
-                If you have any queries or suggestions, click here to contact contact us and we will get back to you soon.
+                If you have any queries or suggestions, click here to contact us and we will get back to you soon.
               </p>
               <button className='button dashboard__content__card__button'
                 onClick={() => navigate('/contact-us')}
