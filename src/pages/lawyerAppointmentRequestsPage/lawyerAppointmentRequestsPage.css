@@ -72,12 +72,11 @@
     font-weight: 500;
 }
 
-@media screen and (max-width: 500px){
-    .l-apt-req-footer{
-        width: 100%;
-        justify-content: space-evenly; 
-        margin-top: -4rem; 
-    }
+.apt-req__action-btns{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
 }
 
 .l-apt-req-footer .apt-req__action-btns button{
@@ -107,4 +106,50 @@
 .list__item__footer__reject:hover{
     background: #bb0202;
     opacity: 0.8;
+}
+
+.datetime-dialog__header{
+    text-align: center;
+}
+
+.datetime-dialog__body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+    margin-top: -1rem;
+}
+
+@media screen and (max-width: 879px){
+    .datetime-dialog__body{
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+.datetime-dialog__body__input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.datetime-dialog__body__input input{
+    width: 16rem;
+}
+
+@media screen and (max-width: 761px){
+    .datetime-dialog__body__input input{
+        width: 12rem;
+    }    
+}
+
+.datetime-dialog__body p, .datetime-dialog__body label{
+    font-weight: bold;
+    color: #ff7300;
+}
+
+.datetime-dialog__body p span{
+    color: #fff;
 }

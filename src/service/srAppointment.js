@@ -67,3 +67,19 @@ export const changeAppointmentStatus = async (car_id, car_status) => {
     console.log(error);
   }
 };
+
+export const srUpdateAppointment = async (updatedAppointmentInfo) => {
+  const { selectedAppointmentId, selectedAppointmentDate } =
+    updatedAppointmentInfo;
+  try {
+    const response = await axios.put(
+      url + "/update-appointment/" + selectedAppointmentId,
+      {
+        selectedAppointmentDate,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
