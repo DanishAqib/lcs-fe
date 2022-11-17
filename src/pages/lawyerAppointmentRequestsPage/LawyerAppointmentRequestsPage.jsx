@@ -205,6 +205,7 @@ export const LawyerAppointmentRequestsPage = () => {
                             }}
                             onClick={() => {
                                 updateAndApproveAppointment();
+                                setIsDateTimeDialogOpen(false);
                             }}
                         >Update & Accept</button>
                         <button className="dialog-cancel-btn datetime-dialog__footer__cancel" type='button'
