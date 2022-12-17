@@ -34,6 +34,19 @@ export const SignupPage = () => {
     };
 
     const validateForm = () => {
+        const nameRegex = /^[a-zA-Z]+$/;
+        if (!nameRegex.test(userInfo.u_firstname)) {
+            toast.error("First name should not contain any number or special character");
+            return false;
+        }
+        if (!nameRegex.test(userInfo.u_lastname)) {
+            toast.error("Last name should not contain any number or special character");
+            return false;
+        }
+        if (!nameRegex.test(userInfo.u_city)) {
+            toast.error("City should not contain any number or special character");
+            return false;
+        }
         if (userInfo.u_phone.length !== 11) {
           toast.error("Enter a valid phone number", {
             position: toast.POSITION.TOP_CENTER,

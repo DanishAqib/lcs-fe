@@ -69,7 +69,6 @@ export const UpdateProfilePage = () => {
         lsUserInfo.u_email = userInfo.u_email;
         lsUserInfo.u_phone = userInfo.u_phone;
         lsUserInfo.u_city = userInfo.u_city;
-        lsUserInfo.ui_image = userInfo.ui_image;
         lsUserInfo.li_services_name = userInfo.li_services_name;
         localStorage.setItem("userInfo", JSON.stringify(lsUserInfo));
     }
