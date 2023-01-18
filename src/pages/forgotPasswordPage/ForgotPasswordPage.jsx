@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button'
 import { Navbar } from "../../components/Navbar";
 import appLogoBlack from "../../assets/images/app-logo-black.png";
 import "./forgotPasswordPage.css";
-import { Link } from "react-router-dom";
 
 export const ForgotPasswordPage = () => {
     return (
